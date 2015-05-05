@@ -5,4 +5,17 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="paragraphTitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/paragraph_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="paragraphDescription">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/paragraph_description</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
 </resources>

@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="paragraph_title">Paragraph Title</string>
+    <string name="paragraph_description">This was supposed to be a pretty large text. But its really hard to write something that is not of any value, so I am just writing down stuff, not sure what does it mean or what someone would think what have I written. Hurray, finally I have a long text</string>
+    <string name="press_me">Press Me!</string>
 </resources>

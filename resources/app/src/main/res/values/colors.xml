@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="paragraph_title">#FF000000</color>
+    <color name="paragraph_description">#666666</color>
+    <color name="button_normal">#0066cc</color>
+    <color name="button_pressed">#e6b121</color>
+</resources>

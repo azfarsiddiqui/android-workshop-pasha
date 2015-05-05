@@ -1,11 +1,49 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/txtTitle"
+        android:text="@string/paragraph_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/paragraphTitle"/>
+
+    <TextView
+        android:id="@+id/txtDescription"
+        android:text="@string/paragraph_description"
+        android:layout_below="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/paragraphDescription"/>
+
+    <Button
+        android:id="@+id/btnPressMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtDescription"
+        android:layout_centerHorizontal="true"
+        android:text="@string/press_me"
+        android:background="@drawable/button"/>
+
+    <ImageView
+        android:id="@+id/imgBall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnPressMe"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ball"/>
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/imgBall"
+        android:background="@drawable/custom_shape"/>
+
 
 </RelativeLayout>

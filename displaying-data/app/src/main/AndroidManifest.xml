@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SimpleListViewActivity"
+            android:label="@string/title_activity_simple_list_view" >
+        </activity>
+        <activity
+            android:name=".ListViewCustomAdapter"
+            android:label="@string/title_activity_list_view_custom_adapter" >
+        </activity>
     </application>
 
 </manifest>

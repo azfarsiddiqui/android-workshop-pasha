@@ -1,39 +1,57 @@
 package com.tenpearls.android.contactsresolver;
 
-import android.support.v7.app.ActionBarActivity;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.provider.ContactsContract;
+import android.support.v7.app.ActionBarActivity;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    TextView mTxtContacts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        initUI();
+        fetchContacts();
+    }
+
+    private void initUI() {
+
         setContentView(R.layout.activity_main);
+        mTxtContacts = (TextView) findViewById(R.id.txtContacts);
     }
 
+    public void fetchContacts() {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+        String output = "";
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        String[] projection = { ContactsContract.RawContacts._ID, ContactsContract.Contacts.DISPLAY_NAME };
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        Cursor cursor = getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, projection, null, null, null);
+
+        if (cursor != null && cursor.getCount () > 0) {
+            while (cursor.moveToNext ()) {
+
+                String id = cursor.getString (cursor.getColumnIndex (ContactsContract.RawContacts._ID));
+                String name = cursor.getString (cursor.getColumnIndex (ContactsContract.Contacts.DISPLAY_NAME));
+
+                output = output + name + "\n";
+            }
+
+            cursor.close ();
+
+            if (output.length() == 0) {
+                mTxtContacts.setText("No contacts found.");
+                return;
+            }
+
+            mTxtContacts.setText(output);
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
 }

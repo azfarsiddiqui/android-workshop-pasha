@@ -1,39 +1,81 @@
 package com.tenpearls.android.datastorage;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    Button mBtnSave;
+    Button mBtnRetrieve;
+    EditText mTxtName;
+    final String SHARED_PREF_KEY = "name";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        initUI();
+        setListeners();
+    }
+
+    private void initUI() {
+
         setContentView(R.layout.activity_main);
+
+        mBtnSave = (Button) findViewById(R.id.btnSave);
+        mBtnRetrieve = (Button) findViewById(R.id.btnRetrieve);
+        mTxtName = (EditText) findViewById(R.id.txtName);
     }
 
+    private void setListeners() {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        mBtnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                onSave();
+            }
+        });
+
+        mBtnRetrieve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                onRetrieve();
+            }
+        });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    private void onSave() {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        saveNameInSharedPrefs();
+    }
 
-        return super.onOptionsItemSelected(item);
+    private void onRetrieve() {
+
+        retrieveNameFromSharedPrefs();
+    }
+
+    private void retrieveNameFromSharedPrefs() {
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences (this);
+        String name = prefs.getString (SHARED_PREF_KEY, "");
+        mTxtName.setText(name);
+    }
+
+    private void saveNameInSharedPrefs() {
+
+        String name = mTxtName.getText().toString();
+
+        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit ();
+        editor.putString (SHARED_PREF_KEY, name);
+        editor.commit ();
     }
 }
