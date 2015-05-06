@@ -25,4 +25,19 @@
         android:layout_below="@+id/btnSave"
         android:text="Retrieve from preferences"/>
 
+    <Button
+        android:id="@+id/btnWriteFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnRetrieve"
+        android:layout_marginTop="30dp"
+        android:text="Write file"/>
+
+    <Button
+        android:id="@+id/btnDeleteFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnWriteFile"
+        android:text="Delete file"/>
+
 </RelativeLayout>
