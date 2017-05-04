@@ -8,6 +8,7 @@ public class News {
     private String title;
     private String description;
     private String thumbnailUrl;
+    private String contentUrl;
 
     public String getTitle() {
         return title;
@@ -31,5 +32,9 @@ public class News {
 
     public void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
+    }
+
+    public String getContentUrl() {
+        return contentUrl;
     }
 }
