@@ -3,4 +3,3 @@ This repository contains source code samples for Android Application Development
 
 Presentation has been uploaded to SlideShare at http://www.slideshare.net/azfarsiddiqui/android-application-development-47861032
 
-You can contact me at m.azfar.siddiqui@gmail.com
