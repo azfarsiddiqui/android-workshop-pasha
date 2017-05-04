@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends ActionBarActivity {
 
-    ListView mListView;
+    ListView mListView = null;
     ArrayList<News> mNewsItems = new ArrayList<>();
     RequestQueue mRequestQueue;
     ImageLoader mImageLoader;
